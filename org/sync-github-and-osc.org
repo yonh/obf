@@ -1,7 +1,6 @@
 #+OPTIONS: \n:t
 #+STYLE: <link rel="stylesheet" type="text/css" href="/style.css" />
 * 将代码同时存放在github和gitosc
-**
 ** 预备说明
    时间: 2015-05-11 23:45:21
    本文描述如何新建一个新的项目,并同步到github和gitosc中,当然实现方式有很多中,这只是我个人的思路

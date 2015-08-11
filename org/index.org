@@ -1,8 +1,8 @@
 #+OPTIONS: \n:t
 #+STYLE: <link rel="stylesheet" type="text/css" href="style.css" />
-* index
-  [[../a/index][index]]
 * ubuntu
   [[../a/linux-notes][ubuntu使用笔记]]
 * git
   [[../a/sync-github-and-osc][将代码同时同步到github和gitosc]]
+* shell
+  [[../a/install-oh-my-zsh][mac安装oh-my-zsh]]

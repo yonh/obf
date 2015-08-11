@@ -1,0 +1,17 @@
+#+OPTIONS: \n:t
+#+STYLE: <link rel="stylesheet" type="text/css" href="/style.css" />
+* mac安装oh-my-zsh
+** 说明
+   时间: 2015-08-11 10:47:30
+   开始一直使用bash，后来发现功能更为强大的zsh和fish
+   相对于fish shell, zsh兼容bash，可以说熟悉bash的话是无需任何学习即可切换到zsh，加之安装
+   oh-my-zsh即可使用，基本不需要怎么配置了
+
+   oh-my-zsh: https://github.com/robbyrussell/oh-my-zsh
+
+** 安装
+   mac系统自带zsh，所以不需要安装zsh了
+   # 仅需一步即可安装成功
+   sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+** 配置文件
+   ~/.zshrc
