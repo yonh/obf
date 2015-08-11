@@ -4,8 +4,8 @@
 ** 说明
    时间: 2015-08-11 10:47:30
    开始一直使用bash，后来发现功能更为强大的zsh和fish
-   相对于fish shell, zsh兼容bash，可以说熟悉bash的话是无需任何学习即可切换到zsh，加之安装
-   oh-my-zsh即可使用，基本不需要怎么配置了
+   相对于fish shell, zsh兼容bash，可以说熟悉bash的话是无需任何学习即可切换到zsh
+   再安装oh-my-zsh，基本不需要怎么配置了
 
    oh-my-zsh: https://github.com/robbyrussell/oh-my-zsh
 
