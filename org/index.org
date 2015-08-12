@@ -6,4 +6,5 @@
   [[../a/sync-github-and-osc][将代码同时同步到github和gitosc]]
 * shell
   [[../a/install-oh-my-zsh][mac安装oh-my-zsh]]
-* sd
+* processing
+  [[../a/processing-in-eclipse][使用eclipse编写processing程序]]
