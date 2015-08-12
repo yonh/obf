@@ -34,3 +34,12 @@
    #+END_SRC
    右键run as -> java applet运行程序
    [[images/processing-in-eclipse/t5.png]]
+   [[file:images/processing-in-eclipse/t5.png][img]]
+   [[file:images/processing-in-eclipse/t5.png]]
+   [[file:images/processing-in-eclipse/t5.png][]]
+
+   #+CAPTION: A black cat stalking a spider
+   #+ATTR_HTML: :alt cat/spider image :title Action! :align right
+   [[images/processing-in-eclipse/t5.png]]
+
+
