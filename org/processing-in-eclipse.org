@@ -1,0 +1,36 @@
+#+OPTIONS: \n:t
+#+STYLE: <link rel="stylesheet" type="text/css" href="/style.css" />
+* 使用eclipse编写processing程序
+** 预备说明
+   2015-08-11 22:25:23
+   本地环境: mac,jdk8,processing2.2
+   本文使用mac作测试，在linux和win下也差不到哪去，原理一致
+
+   参考文章
+   https://processing.org/tutorials/eclipse/ Processing in Eclipse
+
+** 找到processing的jar包
+   在mac系统上安装了processing,在程序上点击右键->show package Contents(显示包内容)
+   [[images/processing-in-eclipse/t1.png]]
+   打开后是这样的
+   [[images/processing-in-eclipse/t2.png]]
+   其中的jar包是我们需要的，我们可以把他们拷贝出来
+** 导入jar包到eclipse
+   接下来是在eclipse中导入我们需要的jar包，在eclipse中依次选择File->import->file system->选择jar包所在目录，选择我们所需的jar包,这里我们只选择core.jar,点击finish继续
+   [[images/processing-in-eclipse/t3.png]]
+   接着右击刚才导入的core.jar -> build path -> add to build path,将导入的jar放到build path中
+   [[images/processing-in-eclipse/t4.png]]
+   
+** 在eclipse下编写processing程序
+   现在我们可以使用eclipse编写processing程序了
+   #+BEGIN_SRC java
+   // test.java
+    public class test extends PApplet {
+       public void setup() {
+            size(300,200);
+            ellipse(100, 100, 30, 30);
+       }
+    }
+   #+END_SRC
+   右键run as -> java applet运行程序
+   [[images/processing-in-eclipse/t5.png]]
