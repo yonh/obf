@@ -11,15 +11,15 @@
 
 ** 找到processing的jar包
    在mac系统上安装了processing,在程序上点击右键->show package Contents(显示包内容)
-   [[images/processing-in-eclipse/t1.png]]
+   [[file:images/processing-in-eclipse/t1.png]]
    打开后是这样的
-   [[images/processing-in-eclipse/t2.png]]
+   [[file:images/processing-in-eclipse/t2.png]]
    其中的jar包是我们需要的，我们可以把他们拷贝出来
 ** 导入jar包到eclipse
    接下来是在eclipse中导入我们需要的jar包，在eclipse中依次选择File->import->file system->选择jar包所在目录，选择我们所需的jar包,这里我们只选择core.jar,点击finish继续
-   [[images/processing-in-eclipse/t3.png]]
+   [[file:images/processing-in-eclipse/t3.png]]
    接着右击刚才导入的core.jar -> build path -> add to build path,将导入的jar放到build path中
-   [[images/processing-in-eclipse/t4.png]]
+   [[file:images/processing-in-eclipse/t4.png]]
    
 ** 在eclipse下编写processing程序
    现在我们可以使用eclipse编写processing程序了
@@ -33,13 +33,6 @@
     }
    #+END_SRC
    右键run as -> java applet运行程序
-   [[images/processing-in-eclipse/t5.png]]
-   [[file:images/processing-in-eclipse/t5.png][img]]
    [[file:images/processing-in-eclipse/t5.png]]
-   [[file:images/processing-in-eclipse/t5.png][]]
-
-   #+CAPTION: A black cat stalking a spider
-   #+ATTR_HTML: :alt cat/spider image :title Action! :align right
-   [[images/processing-in-eclipse/t5.png]]
 
 
