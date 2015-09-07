@@ -40,3 +40,9 @@
      find . -type f -name "*.org" #查找org文件
      find . -type d # 查找目录
      #+END_SRC
+*** nc
+**** 监听端口
+     #+BEGIN_SRC sh 
+     nc -l 8080 # 监听8080端口
+     echo -e "GET /images/json HTTP/1.0\r\n" | nc -U /var/run/docker.sock # 监听unix socket
+     #+END_SRC
