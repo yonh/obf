@@ -8,3 +8,5 @@
   [[../a/install-oh-my-zsh][mac安装oh-my-zsh]]
 * processing
   [[../a/processing-in-eclipse][使用eclipse编写processing程序]]
+* ruby
+  [[../a/sinatra-mysql][Sinatra使用数据库连接不释放]]
