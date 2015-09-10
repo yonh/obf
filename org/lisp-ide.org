@@ -1,0 +1,97 @@
+#+OPTIONS: \n:t
+#+STYLE: <link rel="stylesheet" type="text/css" href="/style.css" />
+* Ubuntu上Lisp开发环境搭建
+** 预备说明
+   2014-4-22 00:19
+   环境:ubuntu:12.04
+** 安装开发环境
+   对于学习，可以选择lispbox，简单直接
+*** 1.LispBox最简单的一种
+    百度搜Lispbox找到官方网站下载压缩包http://common-lisp.net/project/lispbox/,解压到/opt(自己爱放哪里自己放),完整路径是 /opt/lispbox-0.7/
+    运行lispbox.sh, 但是提示错误
+    > /opt/lispbox-0.7/lispbox.sh
+    /opt/lispbox-0.7/emacs-23.2/bin/emacs: error while loading shared libraries: libjpeg.so.62: cannot open shared object file: No such file or directory
+    估计是那个包没被安装的原因，安装下那个包：
+    > sudo apt-get install libjpeg62 
+    OK运行成功
+
+    建立软链接
+    程序放在/opt目录里，每次打开都需要跑到里面去，所以在/usr/local/bin建立软链接，这样就可以直接敲命令打开了
+    > sudo ln -s /opt/lispbox-0.7/lispbox.sh /usr/local/bin/lispbox
+    但是运行lispbox命令时出现了问题
+    > lispbox
+    /usr/local/bin/lispbox: 行 33: /usr/local/bin/emacs-23.2/bin/emacs: 没有那个文件或目录
+    原因大概是终端想要在/usr/local/bin打开emacs啦，但是我们的程序是在/opt/lispbox-0.7里面，所以大概的思路是看看里面的lispbox.sh文件，找个类似的地方执行cd命令就好（当时这么想的，但是不懂写，也不知道有没有这样的命令）
+    我打开文件看到，最开始的地方
+    ----------------------------------------------
+    #!/bin/bash
+    if [ "${0:0:2}" = "./" ]; then
+    export LISPBOX_HOME='/opt/lispbox-0.7/'
+    #export LISPBOX_HOME=`pwd`
+    else
+    export LISPBOX_HOME='/opt/lispbox-0.7/'
+    #export LISPBOX_HOME=`dirname $0`
+    fi
+    -------------------------------------------------
+    看到了个环境变量LISP_HOME,心想设置个环境变量应该可以了，所以在/etc/environment添加了 LISPBOX_HOME='/opt/lispbox-0.7/'
+    结果不行，其他地方也可以设置环境变量的（我记得是这样，但我不会，所以放弃了）
+    我又跑回到lispbox.sh这里来，那么就干脆在这里改代码算了，代码我是看不懂，但是基本知道它在干什么，它在设置LISP_HOME的值，那么我就手动给它来个值好了，于是我将if那段注释掉，然后有了代码
+    -------------------------------------------------
+    #!/bin/bash
+    export LISPBOX_HOME='/opt/lispbox-0.7/'
+    
+    :<<BLOCK   ###注释开始
+    if [ "${0:0:2}" = "./" ]; then
+    export LISPBOX_HOME=`pwd`
+    else
+    export LISPBOX_HOME=`dirname $0`
+    fi
+    BLOCK        ###注释结束
+    -------------------------------------------------
+    于是运行命令lispbox，成功运行
+    
+*** 2.安装clisp
+    > sudo apt-get install clisp
+    安装完成后使用clisp命令进入clisp
+    
+*** 3.Emacs + sbcl + slime
+    这个也很简单,直接下载就OK
+    > sudo apt-get install emacs24
+    > sudo apt-get install sbcl
+    > sudo apt-get install slime
+    
+    启动emacs..并按Alt+x (M-x)..输入slime..然后就等待一会儿.出现CL-USER>..就表示OK了
+    
+** 中文输入的问题
+   1.第二,三种方式安装的,发现默认是使用utf8字符的可以直接使用中文的(不清楚其他人系统是不是也如此,个人Ubuntu14.04 64位)
+   2.使用lispbox的时候默认没有开启对中文字符的支持(貌似就是让emacs使用utf8字符而已)
+   网上看了很多文章,都说在Lispbox 的emacs-23.2/site-lisp/下有个lispbox.el,打开它找到 "(require 'slime)",在后面添加一句
+   (setq slime-net-coding-system 'utf-8-unix)
+   好的,首先找出这个文件,使用 find /opt/lispbox-0.7/ -name "lispbox.el" 找到文件
+   当然我最初是使用了这个命令找到这个文件的 grep "(require 'slime)" /opt/lispbox-0.7/ -r
+   找到之后就在(require 'slime) 后面添加(setq slime-net-coding-system 'utf-8-unix)就OK了
+   重启lispbox
+
+** 网上参考
+*** 1.启动时加载自己Emacs配置文件
+    Lispbox默许设置是不会加载自己的_emacs或.emacs配置文件的，如要加载，则修改lispbox.bat文件
+    修改lispbox.bat文件:
+    将 %EMACS% --no-init-file --no-site-file --eval=%TO_EVAL% 中的"--no-init-file"去掉
+*** 2.中文支持(第一种方法)
+    Lispbox默许字符集为 iso-latin-1-unix，不支持中文字符，中文注释也不行
+    要对中文支持需修改文件解压后的文件夹下的文件 emacs-23.2\site-lisp\lispbox.el
+    在(require 'slime) 这一行的后面增添一行:
+    (setq slime-net-coding-system 'utf-8-unix)
+*** 3.中文支持(第二种方法)
+    lispbox.bat中
+    set TO_EVAL="(progn (load \"lispbox\") (slime))"
+    改为
+    set TO_EVAL="(progn (load \"lispbox\") (slime nil 'utf-8-unix))"
+    即可 
+   http://zhidao.baidu.com/link?url=hXvaGczfuDJ6lfo0Sn1ZjAHtftVZiU7Uy-yUwijTO-U40l604Wxn4UreyQJDLQ1x_1Us50oqajN4vVdKwRsfZq 
+*** 4.某日打开emacs发现调用不了输入法了
+    (1) 经测试使用LC_CTYPE='zh_CN.UTF-8' emacs可以，但是这样用起来不惯
+    (2) 在/etc/environment添加LANGUAGE="zh_CN:en_US:en"注销
+    (3) 在/etc/environment添加 LC_CTYPE=zh_CN.UTF-8
+   
+   

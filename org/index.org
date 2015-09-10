@@ -10,3 +10,7 @@
   [[../a/processing-in-eclipse][使用eclipse编写processing程序]]
 * ruby
   [[../a/sinatra-mysql][Sinatra使用数据库连接不释放]]
+* lisp
+  [[../a/lisp-ide.org][Ubuntu上Lisp开发环境搭建]]
+  [[../a/lisp-db.org][书籍数据库程序源码及笔记]]
+  [[../a/lisp-eval.org][Lisp入门中Lisp解释器代码分析笔记]]
