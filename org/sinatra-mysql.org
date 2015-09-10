@@ -10,7 +10,7 @@
    http://stackoverflow.com/questions/13675879/activerecordconnectiontimeouterror
 ** 正文
    使用sinatra开发自己的小程序，对数据库连接池的使用过后不关闭，导致访问数据库5次后就访问不了
-   [[images/sinatra-mysql/psb.png]]
+   [[file:images/sinatra-mysql/psb.png]]
    其实本质解决很简单，就是找到调用后释放连接的方法就好，但是在官方网站找不到什么办法，都是鸡肠，百度基本也没用（我搜索技术很菜，还不会使用搜索技术），
    那么其实基于一个道理，你遇到过的问题其实早就有人遇到过了，我在百度搜索程序员问问题的网站，搜了几个，都搜不出答案，找到了一个非常著名的网站http://stackoverflow.com，然后就找到解决办法
    添加执行后关闭连接即可
