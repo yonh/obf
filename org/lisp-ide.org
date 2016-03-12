@@ -1,5 +1,6 @@
 #+OPTIONS: \n:t
 #+STYLE: <link rel="stylesheet" type="text/css" href="/style.css" />
+#+TITLE: Ubuntu上Lisp开发环境搭建
 * Ubuntu上Lisp开发环境搭建
 ** 预备说明
    2014-4-22 00:19
