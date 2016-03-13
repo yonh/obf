@@ -1,7 +1,7 @@
 #+OPTIONS: \n:t
 #+STYLE: <link rel="stylesheet" type="text/css" href="/style.css" />
 #+TITLE: vim的简单配置
-* 
+* 说明
 我对vi没什么挑剔的,毕竟多数是在linux上临时改改文件或写点小程序的时候才用用
 默认的vi其实也够用了不过还是为了增加使用vi时的编码效率还是弄些插件,改改默认配置,在此做个记录
 * 配置文件
