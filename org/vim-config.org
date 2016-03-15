@@ -9,8 +9,12 @@
 
 syntax on       " 语法高亮
 
-set autoindent  " 自动对齐
+set autoindent  " 自动对齐,把当前行的对起格式应用到下一行
+set smartindent	" 智能的选择对起方式
 set smartindent " 开启新行时使用智能自动缩进
+set tabstop=4 	" 设置tab键为4个空格, 默认8,
+set shiftwidth=4" 将换行自动缩进设置成4个空格
+
 
 set cursorline  " 横线指示当前行
 
