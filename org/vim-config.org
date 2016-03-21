@@ -44,3 +44,10 @@ inoremap { {<ESC>o}<ESC>ko
 inoremap (" ("");<ESC>hhi
 inoremap then thenend<ESC>hhi<ENTER><BACKSPACE><ESC>ko
 #+END_SRC
+
+* 添加颜色主题
+    关于颜色主题这个不影响使用,但是在实际在linux上使用发现蓝色比较难看清,索性就找找颜色主题替换算了
+    vim的颜色主题很好修改,在配置文件里面添加 *colorscheme 主题名称* 就行了
+    至于主题可以到vim官网或github找
+    http://www.vim.org/scripts/script.php?script_id=625
+    下载之后将文件存放在~/.vim/colors即可
